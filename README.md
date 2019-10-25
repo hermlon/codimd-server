@@ -8,7 +8,7 @@ notes 4-5-6b7v/3 10/1 | 5d-4u-Xd/3 2v/2
 ```
 ````
 to get
-[![VexTab demo tabs](docs/images/VexTabDemoScreenshot.png)][vextab-demo]
+![VexTab demo tabs](docs/images/VexTabDemoScreenshot.png)
 
 CodiMD
 ===
