@@ -426,6 +426,7 @@ export function finishView (view) {
     try {
       var $value = $(value)
       var $ele = $(value).parent().parent()
+      Artist.NOLOGO = true
       var artist = new Artist(0, 0, $('div.ui-view-area').first().outerWidth()*0.85, {scale: 1})
       var vextab = new VexTab(artist)
 
@@ -435,7 +436,7 @@ export function finishView (view) {
           var renderer = new Vex.Flow.Renderer(value, Vex.Flow.Renderer.Backends.SVG);
           artist.render(renderer)
 
-          $ele.addClass('abc')
+          $ele.addClass('vex')
           $value.children().unwrap().unwrap()
           const svg = $ele.find('> svg')
           svg[0].setAttribute('viewBox', `0 0 ${svg.attr('width')} ${svg.attr('height')}`)
