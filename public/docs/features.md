@@ -325,7 +325,7 @@ gantt
   section Section
   A task: a1, 2014-01-01, 30d
   Another task: after a1, 20d
-  
+
   section Another
   Task in sec: 2014-01-12, 12d
   Another task: 24d
@@ -348,6 +348,15 @@ g2gf g2Bd|g2f2 e2d2|c2ec B2dB|A2F2 G4:|
 ```
 
 More information about **abc** syntax [here](http://abcnotation.com/learn)
+
+#### VexTab Music Notation
+
+```vex
+tabstave notation=true
+notes 4-5-6b7v/3 10/1 | 5d-4u-Xd/3 2v/2
+```
+
+More information about **VexTab** syntax [here](http://vexflow.com/vextab/tutorial.html)
 
 ### Alert Area
 

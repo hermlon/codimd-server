@@ -1,3 +1,13 @@
+## VexTab support:
+This fork has [VexTab](http://vexflow.com/vextab/index.html) support!
+Simply write
+`
+```vex
+tabstave notation=true
+notes 4-5-6b7v/3 10/1 | 5d-4u-Xd/3 2v/2
+```
+`
+
 CodiMD
 ===
 
