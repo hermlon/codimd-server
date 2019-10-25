@@ -426,7 +426,7 @@ export function finishView (view) {
     try {
       var $value = $(value)
       var $ele = $(value).parent().parent()
-      var artist = new Artist(0, 0, document.documentElement.clientWidth/2, {scale: 1})
+      var artist = new Artist(0, 0, $('div.ui-view-area').first().outerWidth()*0.85, {scale: 1})
       var vextab = new VexTab(artist)
 
       try {
