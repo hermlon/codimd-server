@@ -420,6 +420,31 @@ export function finishView (view) {
       console.warn(err)
     }
   })
+  // vextab
+  const vexs = view.find('div.vex.raw').removeClass('raw')
+  vexs.each((key, value) => {
+    try {
+      var $value = $(value)
+      var $ele = $(value).parent().parent()
+
+      var renderer = new Vex.Flow.Renderer(value, Vex.Flow.Renderer.Backends.SVG);
+      var artist = new Artist(10, 10, 600, {scale: 0.8})
+      var vextab = new VexTab(artist)
+      vextab.parse("tabstave notation=true\n notes :q 4/4\n")
+      artist.render(renderer)
+      //window.ABCJS.renderAbc(value, $value.text())
+
+      //$ele.addClass('abc')
+      $value.children().unwrap().unwrap()
+      const svg = $ele.find('> svg')
+      svg[0].setAttribute('viewBox', `0 0 ${svg.attr('width')} ${svg.attr('height')}`)
+      svg[0].setAttribute('preserveAspectRatio', 'xMidYMid meet')
+    } catch (err) {
+      $value.unwrap()
+      $value.parent().append(`<div class="alert alert-warning">${escapeHTML(err)}</div>`)
+      console.warn(err)
+    }
+  })
   // image href new window(emoji not included)
   const images = view.find('img.raw[src]').removeClass('raw')
   images.each((key, value) => {
@@ -924,6 +949,8 @@ function highlightRender (code, lang) {
     return `<div class="mermaid raw">${code}</div>`
   } else if (lang === 'abc') {
     return `<div class="abc raw">${code}</div>`
+  } else if (lang === 'vex') {
+    return `<div class="vex raw">${code}</div>`
   }
   const result = {
     value: code
