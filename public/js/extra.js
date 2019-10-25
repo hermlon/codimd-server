@@ -420,6 +420,39 @@ export function finishView (view) {
       console.warn(err)
     }
   })
+  // vextab
+  const vexs = view.find('div.vex.raw').removeClass('raw')
+  vexs.each((key, value) => {
+    try {
+      var $value = $(value)
+      var $ele = $(value).parent().parent()
+      Artist.NOLOGO = true
+      var artist = new Artist(0, 0, $('div.ui-view-area').first().outerWidth()*0.85, {scale: 1})
+      var vextab = new VexTab(artist)
+
+      try {
+          vextab.parse($value.text())
+          value.innerHTML = ''
+          var renderer = new Vex.Flow.Renderer(value, Vex.Flow.Renderer.Backends.SVG);
+          artist.render(renderer)
+
+          $ele.addClass('vex')
+          $value.children().unwrap().unwrap()
+          const svg = $ele.find('> svg')
+          svg[0].setAttribute('viewBox', `0 0 ${svg.attr('width')} ${svg.attr('height')}`)
+          svg[0].setAttribute('preserveAspectRatio', 'xMidYMid meet')
+      }
+      catch (err) {
+        $value.unwrap()
+        $value.parent().append(`<div class="alert alert-danger">${escapeHTML(err.message)}</div>`)
+        console.warn(err)
+      }
+    } catch (err) {
+      $value.unwrap()
+      $value.parent().append(`<div class="alert alert-warning">${escapeHTML(err)}</div>`)
+      console.warn(err)
+    }
+  })
   // image href new window(emoji not included)
   const images = view.find('img.raw[src]').removeClass('raw')
   images.each((key, value) => {
@@ -924,6 +957,8 @@ function highlightRender (code, lang) {
     return `<div class="mermaid raw">${code}</div>`
   } else if (lang === 'abc') {
     return `<div class="abc raw">${code}</div>`
+  } else if (lang === 'vex') {
+    return `<div class="vex raw">${code}</div>`
   }
   const result = {
     value: code
