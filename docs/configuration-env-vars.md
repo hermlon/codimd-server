@@ -77,7 +77,7 @@ defaultNotePath can't be set from env-vars
 | variable | example value | description |
 | -------- | ------------- | ----------- |
 | `CMD_ALLOW_ANONYMOUS` | `true` or `false` | Set to allow anonymous usage (default is `true`). |
-| `CMD_ALLOW_ANONYMOUS_EDITS` | `true` or `false` | If `allowAnonymous` is `true`: allow users to select `freely` permission, allowing guests to edit existing notes (default is `false`). |
+| `CMD_ALLOW_ANONYMOUS_EDITS` | `true` or `false` | If `allowAnonymous` is `true`: allow users to select `freely` permission, allowing guests to edit existing notes (default is `true`). |
 | `CMD_ALLOW_FREEURL` | `true` or `false` | Set to allow new note creation by accessing a nonexistent note URL. This is the behavior familiar from [Etherpad](https://github.com/ether/etherpad-lite). |
 | `CMD_DEFAULT_PERMISSION` | `freely`, `editable`, `limited`, `locked`, `protected` or `private` | Set notes default permission (only applied on signed-in users). |
 | `CMD_SESSION_LIFE` | `1209600000` (14 days) | Cookie session life time in milliseconds. |
@@ -91,7 +91,7 @@ defaultNotePath can't be set from env-vars
 | variable | example value | description |
 | -------- | ------------- | ----------- |
 | `CMD_EMAIL` | `true` or `false` | Set to allow email sign-in. The default is `true`. |
-| `CMD_ALLOW_EMAIL_REGISTER` | `true` or `false` | Set to allow registration of new accounts using an email address. If set to `false`, you can still create accounts using the command line - see `bin/manage_users` for details. This setting has no effect if `CMD_EMAIL` is `false`. The default for `CMD_ALLOW_EMAIL_REGISTER` is `true`. |
+| `CMD_ALLOW_EMAIL_REGISTER` | `true` or `false` | Set to allow registration of new accounts using an email address. If set to `false`, you can still create accounts using the command line - see `bin/manage_users` for details (In production mode, remember to run it with `NODE_ENV` set as `production` in the enviroment). This setting has no effect if `CMD_EMAIL` is `false`. The default for `CMD_ALLOW_EMAIL_REGISTER` is `true`. |
 
 
 ### Dropbox Login
